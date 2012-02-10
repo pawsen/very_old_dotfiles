@@ -11,6 +11,7 @@ alias ping='ping -c 5'
 
 source ${HOME}/.bash.d/functions      # Shell functions
 source ${HOME}/.bash.d/alias
+source ${HOME}/.bash.d/git-completion.bash
 
 # new commands
 #alias da='date "+%A, %B %d, %Y [%T]"'
@@ -103,3 +104,4 @@ export PATH=/usr/lib/colorgcc/bin:$PATH
 
 export export PYMACS_PYTHON=python2
 export python=python2
+
