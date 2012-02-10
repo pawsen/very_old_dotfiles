@@ -105,3 +105,4 @@ export PATH=/usr/lib/colorgcc/bin:$PATH
 export export PYMACS_PYTHON=python2
 export python=python2
 
+# dette er en test
