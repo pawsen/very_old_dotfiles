@@ -1,0 +1,16 @@
+emacs filer ligger på dropbox. Derfra er der lavet et symbolic link til $HOME\.emacs.d med nedenstående kommando
+Kør cmd som admin og indtast:
+
+mklink /D C:\.emacs.d C:\Users\Paw\Documents\Dropbox\.emacs.d
+
+Ps. copy-paste i cmd gøres ved at "højreklikke på den øverste bar", vælge "edit" og så copy/paste
+
+se: http://www.howtogeek.com/howto/windows-vista/using-symlinks-in-windows-vista/
+
+eller mere udførligt:
+se: http://www.howtogeek.com/howto/16226/complete-guide-to-symbolic-links-symlinks-on-windows-or-linux/
+
+Iøvrigt:
+Ændr encoding af en fil ved:
+http://www.gnu.org/software/emacs/manual/html_node/elisp/Encoding-and-I_002fO.html
+ - M-x: buffer-file-coding-system

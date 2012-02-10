@@ -1,0 +1,8 @@
+
+# map "page up" and "page down" to search history based on current cmdline 
+# http://askubuntu.com/questions/59846/bash-history-search-partial-up-arrow
+"\e[A": history-search-backward
+"\e[B": history-search-forward
+"\e[C": forward-char
+"\e[D": backward-char
+

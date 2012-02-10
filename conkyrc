@@ -1,0 +1,126 @@
+# set to yes if you want Conky to be forked in the background
+background yes
+
+#font
+use_xft yes
+xftfont bauhaus:pixelsize=10
+
+# Text alpha when using Xft
+xftalpha 0.5
+
+# Update interval in seconds
+update_interval 1.0
+
+# This is the number of times Conky will update before quitting
+# Set to zero to run forever.
+total_run_times 0
+
+# Create own window instead of using desktop (required in awesoem & nautilus)
+own_window yes
+
+# If own_window is yes, you may use type normal, desktop or override
+own_window_type desktop
+
+# Use pseudo transparency with own_window?
+own_window_transparent yes
+
+# If own_window is yes, these window manager hints may be used
+own_window_hints undecorated,below,sticky,skip_taskbar,skip_pager
+
+# Use double buffering (reduces flicker, may not work for everyone)
+double_buffer yes
+
+# Minimum size of text area
+minimum_size 200 100
+
+# Maximum width
+maximum_width 190
+
+# Draw shades?
+draw_shades no
+
+# Draw outlines?
+draw_outline no
+
+# Draw borders around text
+draw_borders no
+
+# Draw borders around graphs
+draw_graph_borders no
+
+# Stippled borders?
+# stippled_borders 8
+
+# border margins
+# border_margin 2
+
+# border width
+# border_width 1
+
+# Default colors and also border colors
+default_color grey
+default_shade_color black
+default_outline_color white
+
+# Text alignment, other possible values are commented
+#alignment top_left
+#alignment top_right
+#alignment bottom_left
+#alignment bottom_right
+#alignment none
+# Gap between borders of screen and text
+# same thing as passing -x at command line
+gap_x 6
+gap_y 22
+
+# Subtract file system buffers from used memory?
+no_buffers yes
+
+# set to yes if you want all text to be in uppercase
+uppercase no
+
+# number of cpu samples to average
+# set to 1 to disable averaging
+cpu_avg_samples 2
+
+# Force UTF8? note that UTF8 support required XFT
+override_utf8_locale yes
+
+#top_name_width 7
+minimum_size 200 100
+
+##############################################
+
+TEXT
+${color #e43526}SYSTEM
+${color white}${hr 1}
+  ${color #e3ce83}Ram: ${color #f9edc4}$alignr$mem/$memmax
+  ${color #f9edc4}$membar
+  ${color #e3ce83}Swap: ${color #f9edc4}$alignr$swap/$swapmax
+  ${color #f9edc4}$swapbar
+  ${color #e3ce83}HD I/O: ${color #f9edc4} $diskio
+  ${color #f9edc4}${diskiograph 15,200}
+############## CPU-INFO
+  ${color #e3ce83}CPU1: ${color #f9edc4} ${execi 2 sensors | grep 'Core 0' | awk '{print $3}'}°C $alignr${freq cpu2} Mhz
+  ${color #e3ce83}CPU2: ${color #f9edc4} ${execi 2 sensors | grep 'Core 1' | awk '{print $3}'}°C    $alignr${freq cpu2} Mhz
+  ${color #e3ce83}CPU: ${color #f9edc4} $alignr${cpu cpu0}%
+  ${color #f9edc4}${cpubar cpu0}
+  ${color #f9edc4}${cpugraph 20,200 eae8e3 ffffff}
+############## PROCESSES
+${color #e43526}PROCESSES
+${color white}${hr 1}
+  ${color #e3ce83}Processes: ${color #f9edc4}$processes    ${color #e3ce83}Running: ${color #f9edc4}$running_processes
+  $stippled_hr
+############## 
+  ${color #e3ce83}NAME ${goto 80}PID ${goto 120}CPU% ${goto 160}MEM%
+############## CPU
+  ${color #f9edc4}${top name 1}${goto 80}${top pid 1}${goto 120}${top cpu 1}${goto 160}${top mem 1}
+  ${top name 2}${goto 80}${top pid 2}${goto 120}${top cpu 2}${goto 160}${top mem 2}
+  ${top name 3}${goto 80}${top pid 3}${goto 120}${top cpu 3}${goto 160}${top mem 3}
+  ${top name 4}${goto 80}${top pid 4}${goto 120}${top cpu 4}${goto 160}${top mem 4}
+
+############## MEMORY
+  ${top_mem name 1} ${goto 80}${top_mem pid 1} ${goto 120}${top_mem cpu 1} ${goto 160}${top_mem mem 1}
+  ${top_mem name 2} ${goto 80}${top_mem pid 2} ${goto 120}${top_mem cpu 2} ${goto 160}${top_mem mem 2}
+  ${top_mem name 3} ${goto 80}${top_mem pid 3} ${goto 120}${top_mem cpu 3} ${goto 160}${top_mem mem 3}
+$stippled_hr

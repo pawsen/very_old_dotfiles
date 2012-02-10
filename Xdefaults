@@ -1,0 +1,53 @@
+! black
+URxvt.color0  : #2E2E34343636
+URxvt.color8  : #555557575353
+! red
+URxvt.color1  : #CCCC00000000
+URxvt.color9  : #EFEF29292929
+! green
+URxvt.color2  : #4E4E9A9A0606
+URxvt.color10 : #8A8AE2E23434
+! yellow
+URxvt.color3  : #C4C4A0A00000
+URxvt.color11 : #FCFCE9E94F4F
+! blue
+URxvt*color4: RoyalBlue
+URxvt*color12: RoyalBlue
+
+!URxvt.color4  : #34346565A4A4
+!URxvt.color12 : #72729F9FCFCF
+! magenta
+URxvt.color5  : #757550507B7B
+URxvt.color13 : #ADAD7F7FA8A8
+! cyan
+URxvt.color6  : #060698209A9A
+URxvt.color14 : #3434E2E2E2E2
+! white
+URxvt.color7  : #D3D3D7D7CFCF
+URxvt.color15 : #EEEEEEEEECEC
+
+URxvt*foreground:White
+URxvt*background:Black
+
+! fonts
+! run "fc-list" for a list of available fonts
+!URxvt*font: xft:Monospace:pixelsize=16
+!URxvt*font: xft:DejaVu Sans Mono:size=9
+!URxvt*font: xft:DejaVu Sans Mono:pixelsize=12:antialias=true:hinting=true
+!URxvt*boldFont: xft:DejaVu Sans Mono:bold:pixelsize=12:antialias=true:hinting=true
+URxvt*font: xft:DejaVu Sans Mono:pixelsize=12:antialias=falsee:hinting=true
+URxvt*boldFont: xft:DejaVu Sans Mono:bold:pixelsize=12:antialias=falsee:hinting=true
+!URxvt*font: xft:Bitstream Vera Sans Mono:pixelsize=12:antialias=true:hinting=true
+!URxvt*boldFont: xft:Bitstream Vera Sans Mono:bold:pixelsize=12:antialias=true:hinting=true
+
+
+URxvt.perl-ext-common : default,matcher
+URxvt.urlLauncher     : chromium
+URxvt.matcher.button  : 1
+
+URxvt*scrollBar: True
+URxvt*scrollTtyOutput: False
+URxvt*scrollTtyKeypress: True
+URxvt*secondaryScroll: True
+URxvt*saveLines: 8000
+
