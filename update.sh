@@ -25,18 +25,19 @@ update () {
             #echo "Skipped $file"
             return
         else
-            # Normal files are just copied
-	    echo "Updating $file" >& 2
-	    cp -R "$base_file" "$file"
-	    return
-	fi
+            # Normal files are just copied.
+            # Note that this will overwrite any existing file.
+	        echo "Updating $file" >& 2
+	        cp -R "$base_file" "$file"
+	        return
+	    fi
     fi
 
     if [ -d "$base_file" ]; then
         # Dirs are handled recursively
         #echo "Recursively updating $file..."
-	dirupdate $file/
-	return
+	    dirupdate $file/
+	    return
     fi
 
     echo "Skipping $file (unknown type)"
@@ -45,13 +46,13 @@ update () {
 
 dirupdate () {
     for file in ${@}*; do
-	case $file in
-	    gitup)
-		continue
-		;;
-	esac
+	    case $file in
+	        gitup)
+		        continue
+		        ;;
+	    esac
 
-	update "$file"
+	    update "$file"
     done
 }
 
