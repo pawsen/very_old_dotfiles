@@ -17,5 +17,5 @@ Host dtu
 Host github.com
   HostName github.com
   User git
-  IdentityFile /home/paw/.ssh/github
+  IdentityFile /home/paw/.ssh/github_arch_home
 
