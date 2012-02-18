@@ -21,7 +21,7 @@ fi
 # Resource and keymap settings
 # tilføjet fordi jeg ikke bruger DE. xrdb indlæser bl.a font-indstillinger. -merge sikre at tidligere læste indstillinger ikke slettes når en ny fil indlæses
 xrdb -merge ${HOME}/.Xresources         # update x resources db
-xmodmap ${HOME}/.Xmodmaprc              # load change in keyboard layout
+xmodmap ~/.Xmodmaprc              # load change in keyboard layout
 
 # Autostart settings
 # Start the GNU Emacs daemon
