@@ -18,12 +18,6 @@ if [ -d /etc/X11/xinit/xinitrc.d ]; then
   unset f
 fi
 
-# tiløjet for at få automount til at virke
-# D-Bus
-if which dbus-launch >/dev/null && test -z "$DBUS_SESSION_BUS_ADDRESS"; then
-       eval "$(dbus-launch --sh-syntax --exit-with-session)"
-fi
-
 # Resource and keymap settings
 # tilføjet fordi jeg ikke bruger DE. xrdb indlæser bl.a font-indstillinger. -merge sikre at tidligere læste indstillinger ikke slettes når en ny fil indlæses
 xrdb -merge ${HOME}/.Xresources         # update x resources db
@@ -36,7 +30,7 @@ xbindkeys &
 
 #exec gnome-session
 exec ck-launch-session gnome-session
-#exec ck-launch-session dbus-launch gnome-session
+exec ck-launch-session dbus-launch gnome-session
 # exec startkde
 # exec startxfce4
 # ...or the Window Manager of your choice
