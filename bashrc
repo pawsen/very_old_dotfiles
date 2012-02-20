@@ -16,7 +16,6 @@ export SUDO_EDITOR="emacsclient -c -a nano"
 # Path
 export PATH=$PATH:~/bin # flere sti'er adskilles med colon, fx: "~/.bin:~/.bin/Gentoo"
 export PATH=/usr/lib/colorgcc/bin:$PATH
-
 # Set variables
 # pgplot
 export PGPLOT_DIR=~/documents/Dropbox/Bachelor/fortran/fem_gfortran/lib/pgplot
