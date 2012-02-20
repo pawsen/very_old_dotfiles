@@ -1,3 +1,5 @@
+#!/bin/bash
+
 source ${HOME}/.bash.d/functions      # Shell functions
 source ${HOME}/.bash.d/alias
 source ${HOME}/.bash.d/git-completion.bash
