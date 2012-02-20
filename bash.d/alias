@@ -69,8 +69,10 @@ alias matlab='matlab -desktop'
 alias dtumnt='bash /home/paw/.scripts/dtumnt.sh'
 alias dtuumnt='fusermount -u ~/dtumnt'
 
-# Emacs
+# Emacs, # hvis emacs --daemon ikke kører, bruges nano i stedet
 alias et='emacsclient -t -a nano'
-# hvis emacs --daemon ikke kører, bruges nano i stedet
-alias ef='emacsclient -c'
-
+alias ef='emacsclient -c -a nano'
+alias kill_emacs='emacsclient --eval "(progn (save-some-buffers t t) (kill-emacs))"'
+# edit file with root privs
+alias efs="SUDO_EDITOR=\"emacsclient -c -a emacs\" sudoedit"
+alias ets="SUDO_EDITOR=\"emacsclient -t -a emacs\" sudoedit"
