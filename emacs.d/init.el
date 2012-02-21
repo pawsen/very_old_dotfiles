@@ -563,6 +563,15 @@
 ;;       (when (and isearch-forward (not isearch-mode-end-hook-quit))
 ;;         (goto-char isearch-other-end)))
 
+;; Gives a more smooth scolling in windows.
+;; http://stackoverflow.com/questions/3631220/fix-to-get-smooth-scrolling-in-emacs
+((when windows-p)
+ (setq redisplay-dont-pause t
+       scroll-margin 1
+       scroll-step 1
+       scroll-conservatively 10000
+       scroll-preserve-screen-position 1)
+ )
 
 ;; for debugging
 (add-hook 'gdb-mode-hook
