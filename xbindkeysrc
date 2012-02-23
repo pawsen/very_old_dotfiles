@@ -79,7 +79,7 @@
     Mod2+Mod4 + d
 
 # snap fuctionality
-"snap2.sh -l"
+./"snap2.sh -l"
     Alt+Mod2+Mod4 + Left
 
 "snap2.sh -r"
