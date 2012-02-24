@@ -7,8 +7,9 @@ source ${HOME}/.bash.d/git-completion.bash
 #export HISTCONTROL=erasedups
 export HISTCONTROL="ignoredups" # don't put duplicate lines in the history
 export HISTSIZE=10000
+export HISTIGNORE='ls:bg:fg:history' #ignore these commands
 
-# set default editor. NB kræver at emacs --deamon kűrer i baggrunden
+# set default editor. NB kræver at emacs --deamon kører i baggrunden
 export EDITOR="emacsclient -c"
 export VISUAL="emacsclient -c"
 export SUDO_EDITOR="emacsclient -c -a nano"
@@ -28,3 +29,4 @@ export BROWSER=chromium
 
 export export PYMACS_PYTHON=python2
 export python=python2
+

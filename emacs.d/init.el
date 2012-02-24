@@ -565,7 +565,7 @@
 
 ;; Gives a more smooth scolling in windows.
 ;; http://stackoverflow.com/questions/3631220/fix-to-get-smooth-scrolling-in-emacs
-((when windows-p)
+(when (windows-p)
  (setq redisplay-dont-pause t
        scroll-margin 1
        scroll-step 1
