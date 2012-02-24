@@ -26,7 +26,7 @@ if [ $UID -ne 0 ]; then
     alias svim='sudo vim'
     alias root='sudo su'
     alias reboot='sudo reboot'
-    alias shutdown='sudo shutdoen -h now'
+    alias shutdown='sudo shutdown -h now'
     alias halt='sudo halt'
     alias update='sudo pacman -Su'
     alias netcfg='sudo netcfg2'
