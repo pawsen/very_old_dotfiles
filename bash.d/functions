@@ -5,6 +5,13 @@
 # Most of these aren't done by me, but collected from different places.
 # from https://github.com/Cloudef
 
+################
+## Get my ip ##
+################
+function myip {
+  res=$(curl -s checkip.dyndns.org | grep -Eo '[0-9\.]+')
+  echo "$res"
+}
 
 ################
 ## Smarter CD ##
@@ -430,35 +437,6 @@ glc-encode() {
       glc-play "$1" -o - -y 1 | ffmpeg -i pipe: -b $3 "$4"
    fi
 }
-
-##################################################
-## Stream to JustinTV                           ##
-## Create $HOME/.streamkey with your stream key ##
-## or export STREAM_KEY variable                ##
-##################################################
-#source ${HOME}/.streamkey
-#streamjustin() {
-#   local WININFO="`xwininfo`"
-#   local INRESW=`echo "$WININFO" | grep 'Width:'                  | awk '{print $2;}'`
-#   local INRESH=`echo "$WININFO" | grep 'Height:'                 | awk '{print $2;}'`
-#   local INPOSX=`echo "$WININFO" | grep 'Absolute upper-left X:'  | awk '{print $4;}'`
-#   local INPOSY=`echo "$WININFO" | grep 'Absolute upper-left Y:'  | awk '{print $4;}'`
-#
-#   local INRES="${INRESW}x${INRESH}"
-#   local INPOS="${INPOSX},${INPOSY}"
-#
-#   local OUTRES=${1-480x320}           # You can pass argument
-#   local FPS="30"                      # Target FPS
-#   local PRESET="ultrafast"
-#
-#   echo "---------$INRES+$INPOS------------"
-#   echo ""
-#
-#   ffmpeg -f x11grab -s "$INRES" -vf scale=${INRESW}:-1 -r "$FPS" -i :0.0+$INPOS \
-#   -f alsa -i hw:0,0 -async 1 -ar 44100 -ab 192k -sameq \
-#   -vcodec libx264 -vpre "$PRESET" -crf 22 -s "$OUTRES" \
-#   -threads 4 -f flv "rtmp://live.justin.tv/app/$STREAM_KEY"
-#}
 
 ########################
 ## Print window class ##
