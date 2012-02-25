@@ -3,6 +3,11 @@ Host *
    ServerAliveCountMax 120
    ServerAliveInterval 30
 
+Host desktop
+   User paw
+   HostName arch_home
+   IdentityFile ~/.ssh/laptop_desktop_sync
+
 Host hpc
    User s082705
    HostName hpc-fe.gbar.dtu.dk

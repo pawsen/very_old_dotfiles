@@ -13,6 +13,7 @@ function snap()
         R)  #place window on right half of screen
             X=$HALFSCREEN
             W=$HALFSCREEN
+	echo $HALFSCREEN
             ;;
         L)   #place window on left half of screen
             X=0
