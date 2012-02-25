@@ -1,0 +1,7 @@
+root = /home/paw
+
+# ssh://desktop kan bruges fordi desktop er defineret i .ssh/config
+root = ssh://desktop//home/paw
+
+# path to synchronize
+include common
