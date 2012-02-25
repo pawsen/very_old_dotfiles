@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Fra
-#http://crunchbanglinux.org/forums/post/145676/#p145676
+#http://crunchbanglinux.org/forums/topic/15002/wintile-pekwmopenbox-keyboard-window-tilingaerosnapping/
 #############################################   CONFIGURATION   #############################################
 
 PANEL_L=$((0))         # If panel is on the LEFT of the screen, set its height here. If there's no panel there, set it to 0.

@@ -15,7 +15,7 @@ export VISUAL="emacsclient -c"
 export SUDO_EDITOR="emacsclient -c -a nano"
 
 # Path
-export PATH=$PATH:~/bin # flere sti'er adskilles med colon, fx: "~/.bin:~/.bin/Gentoo"
+export PATH=$PATH:~/bin:~/.scripts # flere sti'er adskilles med colon, fx: "~/.bin:~/.bin/Gentoo"
 export PATH=/usr/lib/colorgcc/bin:$PATH
 # Set variables
 # pgplot
@@ -29,4 +29,12 @@ export BROWSER=chromium
 
 export export PYMACS_PYTHON=python2
 export python=python2
+
+#if [ -n "$SSH_CLIENT" ]; then
+#    #PS1='\[\e[0;33m\]\u@\h:\wSSH$\[\e[m\] '
+#    PS1='\[\e[0;32m\][\u@\h \W]\$\[\e[0m\] '
+#else
+#    PS1='\[\e[1;32m\][\u@\h \W]\$\[\e[0m\] '
+#    #PS1='[\u@\h \W]\$ '
+#fi
 
