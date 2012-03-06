@@ -35,6 +35,10 @@
 ;; Remap M-/ til "shift"-tab
 (global-set-key (kbd "<backtab>") 'hippie-expand);; 'dabbrev-expand)
 
+;; increment/decrement integer/decimal
+(global-set-key (kbd "C-c +") 'my-increment-number-decimal)
+(global-set-key (kbd "C-c -") 'my-decrement-number-decimal)
+
 ;; Get a list of occurences of a word in a buffer
 ;; Normal binding(when searching) M-s o
 (define-key isearch-mode-map (kbd "M-o") 'isearch-occur)

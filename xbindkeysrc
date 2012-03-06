@@ -58,11 +58,6 @@
     m:0x50 + c:27
     Mod2+Mod4 + r 
 
-#Kill active window
-#"xkill -id $(xprop -root | grep NET_ACTIVE_WINDOW\( | cut -d# -f2)"
-#    m:0x51 + c:54
-#    Shift+Mod2+Mod4 + c 
-
 #Open Thunar in home
 "Thunar ~"
     m:0x50 + c:41
@@ -76,17 +71,22 @@
 #doublecmd
 "doublecmd"
     m:0x50 + c:40
-    Mod2+Mod4 + d
+    Mod2+Mod4 + d 
 
 # snap fuctionality
-./"snap2.sh -l"
-    Alt+Mod2+Mod4 + Left
+"snap2.sh -l"
+   Alt+Mod2+Mod4 + Left
 
 "snap2.sh -r"
-    Alt+Mod2+Mod4 + Right
+   Alt+Mod2+Mod4 + Right
 
 "snap2.sh -tl"
-    Alt+Mod2+Mod4 + Up
+   Alt+Mod2+Mod4 + Up
+
+#Lock X
+"sflock"
+    m:0x50 + c:133
+    Mod2+Mod4 + Super_L 
 
 #
 # End of xbindkeys configuration
