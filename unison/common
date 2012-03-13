@@ -1,0 +1,10 @@
+# what to synched
+
+path = lib
+path = src
+path = documents
+
+ignore = Path documents/Dropbox/*
+ignore = Path documents/Dropbox/.*
+ignore = Path documents/eclipse/*
+

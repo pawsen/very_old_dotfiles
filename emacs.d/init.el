@@ -210,6 +210,14 @@
 ;; EasyPG, Encryption
 (require 'epa-file)
 (epa-file-enable)
+(setq epa-file-select-keys nil ; If non-nil, always asks user to select recipients.
+      epa-file-encrypt-to "pawsen@gmail.com" ; *Recipient(s) used for encrypting files.
+      )
+
+
+;; buffer-extension.
+;; funktioner: kill-current-mode-buffers, copy-buffer-file-name-as-kill (giver full path til fil)
+(require 'buffer-extension)
 
 ;; ack
 ;; Som grep men måske smartere. Virker ikke pt. Skal bruge nyere udgave af ack...el filen

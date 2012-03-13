@@ -30,6 +30,8 @@ if [ $UID -ne 0 ]; then
     alias halt='sudo halt'
     alias update='sudo pacman -Su'
     alias netcfg='sudo netcfg2'
+    alias hibernate='sudo pm-hibernate'
+    alias suspend='sudo pm-suspend'
 fi
 
 # ls
