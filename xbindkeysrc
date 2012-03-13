@@ -83,10 +83,10 @@
 "snap2.sh -tl"
    Alt+Mod2+Mod4 + Up
 
-#Lock X
+#Lock Xl
 "sflock"
-    m:0x50 + c:133
-    Mod2+Mod4 + Super_L 
+    m:0x58 + c:46
+    Alt+Mod2+Mod4 + l 
 
 #
 # End of xbindkeys configuration
