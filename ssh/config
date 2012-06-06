@@ -3,6 +3,11 @@ Host *
    ServerAliveCountMax 120
    ServerAliveInterval 30
 
+Host desktop
+   User paw
+   HostName arch_home
+   IdentityFile ~/.ssh/laptop_desktop_sync
+
 Host hpc
    User s082705
    HostName hpc-fe.gbar.dtu.dk
@@ -12,6 +17,12 @@ Host dtu
    User s082705
    HostName login.gbar.dtu.dk
    IdentityFile ~/.ssh/dtumnt
+
+Host server
+   User paw
+#   HostName 192.168.1.21
+   HostName pawsen.com
+   IdentityFile ~/.ssh/debianServer
 
 # Default GitHub user (paw)
 Host github.com

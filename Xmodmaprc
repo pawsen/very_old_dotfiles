@@ -1,3 +1,7 @@
+! Change default key-bindings.
+! load by running
+! xmodmap ~/.Xmodmaprc
+
 clear mod4
 clear lock
 clear mod3

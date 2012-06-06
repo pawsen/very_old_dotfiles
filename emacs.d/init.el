@@ -210,6 +210,19 @@
 ;; EasyPG, Encryption
 (require 'epa-file)
 (epa-file-enable)
+(setq epa-file-select-keys nil ; If non-nil, always asks user to select recipients.
+      epa-file-encrypt-to "pawsen@gmail.com" ; *Recipient(s) used for encrypting files.
+      )
+
+
+;; buffer-extension.
+;; funktioner: kill-current-mode-buffers, copy-buffer-file-name-as-kill (giver full path til fil)
+(require 'buffer-extension)
+
+;;make script files executable automatically 
+;;http://www.masteringemacs.org/articles/2011/01/19/script-files-executable-automatically/
+(add-hook 'after-save-hook
+          'executable-make-buffer-file-executable-if-script-p)
 
 ;; ack
 ;; Som grep men måske smartere. Virker ikke pt. Skal bruge nyere udgave af ack...el filen
@@ -563,6 +576,15 @@
 ;;       (when (and isearch-forward (not isearch-mode-end-hook-quit))
 ;;         (goto-char isearch-other-end)))
 
+;; Gives a more smooth scolling in windows.
+;; http://stackoverflow.com/questions/3631220/fix-to-get-smooth-scrolling-in-emacs
+(when (windows-p)
+ (setq redisplay-dont-pause t
+       scroll-margin 1
+       scroll-step 1
+       scroll-conservatively 10000
+       scroll-preserve-screen-position 1)
+ )
 
 ;; for debugging
 (add-hook 'gdb-mode-hook

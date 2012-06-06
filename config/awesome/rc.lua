@@ -498,14 +498,15 @@ function run_once(prg,arg_string,pname,screen)
     end
 end
 
-run_once("wicd-client",nil,"/usr/bin/python2 -O /usr/share/wicd/gtk/wicd-client.py")
+--run_once("wicd-client",nil,"/usr/bin/python2 -O /usr/share/wicd/gtk/wicd-client.py")
+run_once("wicd-client","--tray &",'nil')
 run_once("devmon","&",nil)
 run_once("volti","&",nil)
 run_once("xfce4-power-manager","&",nil)
-run_once("xfce4-panel","&",nil)
+--run_once("xfce4-panel","&",nil)
 run_once("trayfreq","&",nil)
-run_once("rainlendar","&",nil)
+--run_once("rainlendar","&",nil)
 run_once("xfsettingsd","&",nil)
 run_once("conky","&",nil)
-run_once("emacs","--daemon &",nil)
+--run_once("emacs","--daemon &",nil)
 -- }}}

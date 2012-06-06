@@ -94,18 +94,28 @@ minimum_size 200 100
 TEXT
 ${color #e43526}SYSTEM
 ${color white}${hr 1}
-  ${color #e3ce83}Ram: ${color #f9edc4}$alignr$mem/$memmax
-  ${color #f9edc4}$membar
-  ${color #e3ce83}Swap: ${color #f9edc4}$alignr$swap/$swapmax
-  ${color #f9edc4}$swapbar
-  ${color #e3ce83}HD I/O: ${color #f9edc4} $diskio
-  ${color #f9edc4}${diskiograph 15,200}
+${color #e3ce83}File Systems:
+ ${color #e3ce83} Root ${color #f9edc4}${fs_free /}/${fs_size /} ${fs_bar /}
+ ${color #e3ce83} Home ${color #f9edc4}${fs_free /home}/${fs_size /home} ${fs_bar /home}$
+#{if_mounted /media/disk}
+# ${color #e3ce83} MS ${color #f9edc4} ${fs_free /media/disk}/${fs_size #/media/disk} ${fs_bar /media/disk}${endif}
+ ${color #e3ce83} RAM ${color #f9edc4}  $mem/$memmax ${membar}
+ ${color #e3ce83} Swap ${color #f9edc4}  $swap/$swapmax ${swapbar}
+ ${color #e3ce83} Disk Read-Write IO$color	 $diskio_read - $diskio_write
+$stippled_hr
+
 ############## CPU-INFO
-  ${color #e3ce83}CPU1: ${color #f9edc4} ${execi 2 sensors | grep 'Core 0' | awk '{print $3}'}°C $alignr${freq cpu2} Mhz
-  ${color #e3ce83}CPU2: ${color #f9edc4} ${execi 2 sensors | grep 'Core 1' | awk '{print $3}'}°C    $alignr${freq cpu2} Mhz
+  ${color #e3ce83}CPU1: ${color #f9edc4} ${execi 2 sensors | grep 'Core 0' | awk '{print $3}'}°C $alignr ${freq (1)} Mhz
+  ${color #e3ce83}CPU2: ${color #f9edc4} ${execi 2 sensors | grep 'Core 1' | awk '{print $3}'}°C $alignr ${freq (2)} Mhz
+#${color1}Frequency :$color0
+# ${exec cpufreq-info | grep "current CPU frequency" | cut -c28-35}
+#${freq}${color1}
+  ${color #e3ce83}CPU1: ${color #f9edc4} ${cpu cpu1}% ${cpubar cpu1}
+  ${color #e3ce83}CPU2: ${color #f9edc4} ${cpu cpu2}% ${cpubar cpu2}
   ${color #e3ce83}CPU: ${color #f9edc4} $alignr${cpu cpu0}%
   ${color #f9edc4}${cpubar cpu0}
   ${color #f9edc4}${cpugraph 20,200 eae8e3 ffffff}
+
 ############## PROCESSES
 ${color #e43526}PROCESSES
 ${color white}${hr 1}
@@ -124,3 +134,36 @@ ${color white}${hr 1}
   ${top_mem name 2} ${goto 80}${top_mem pid 2} ${goto 120}${top_mem cpu 2} ${goto 160}${top_mem mem 2}
   ${top_mem name 3} ${goto 80}${top_mem pid 3} ${goto 120}${top_mem cpu 3} ${goto 160}${top_mem mem 3}
 $stippled_hr
+####
+
+############## NETWORK
+${color #e43526}NETWORK
+${color white}${hr 1}
+#### NETWORK -- WIRELESS
+${if_existing /sys/class/net/wlan0/operstate up}  ${color lightgrey}Wireless Rate:$color ${wireless_bitrate wlan0"} ${color lightgrey}Link Quality: $color ${wireless_link_qual_perc wlan0}
+  ${color lightgrey}IP Address:$color ${addr wlan0} 
+  ${color lightgrey}Associated With:$color ${wireless_essid wlan0}
+  Down:${color #8844ee} ${downspeed wlan0} ${color lightgrey} ${offset 20}Up:${color #22ccff} ${upspeed wlan0}
+  ${color #000000}${downspeedgraph wlan0 32,150 ffffff ffffff} ${color #000000}${upspeedgraph wlan0 32,150 ffffff ffffff}
+${endif}
+####
+#### NETWORK -- WIRED
+${if_existing /sys/class/net/eth0/operstate up}  ${color lightgrey}Wired IP Address: $color${addr eth0}
+  Down:${color #8844ee} ${downspeed eth0} ${color lightgrey} ${offset 40}Up:${color #22ccff} ${upspeed eth0}
+  ${color #000000}${downspeedgraph eth0 32,150 ffffff ffffff} ${color #000000}${upspeedgraph eth0 32,150 ffffff ffffff}${endif}
+####
+#### Porte
+${color #e3ce83}Port(s)${alignr}#Connections
+$color Inbound: ${tcp_portmon 1 32767 count} Outbound: ${tcp_portmon 32768 61000 count}${alignr}ALL: ${tcp_portmon 1 65535 count}
+${color #e3ce83}Inbound Connection ${alignr} Local Service/Port$color
+${tcp_portmon 1 32767 rhost 0} ${alignr} ${tcp_portmon 1 32767 lservice 0}
+${tcp_portmon 1 32767 rhost 1} ${alignr} ${tcp_portmon 1 32767 lservice 1}
+${tcp_portmon 1 32767 rhost 2} ${alignr} ${tcp_portmon 1 32767 lservice 2}
+${tcp_portmon 1 32767 rhost 3} ${alignr} ${tcp_portmon 1 32767 lservice 3}
+${tcp_portmon 1 32767 rhost 4} ${alignr} ${tcp_portmon 1 32767 lservice 4}
+${color #e3ce83}Outbound Connection ${alignr} Remote Service/Port$color
+${tcp_portmon 32768 61000 rhost 0} ${alignr} ${tcp_portmon 32768 61000 rservice 0}
+${tcp_portmon 32768 61000 rhost 1} ${alignr} ${tcp_portmon 32768 61000 rservice 1}
+${tcp_portmon 32768 61000 rhost 2} ${alignr} ${tcp_portmon 32768 61000 rservice 2}
+${tcp_portmon 32768 61000 rhost 3} ${alignr} ${tcp_portmon 32768 61000 rservice 3}
+${tcp_portmon 32768 61000 rhost 4} ${alignr} ${tcp_portmon 32768 61000 rservice 4}
